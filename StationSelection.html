@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>ISS Checkin Fall 2015</title>
+  <script>
+	function i94_cat_select(){
+		$("#i94_dia").modal('show');
+	}
+	
+	function get_f1(){
+		window.location= 'direct_i94_f1.html';
+	}
+	
+	function get_j1(){
+		window.location= 'direct_i94_j1.html';
+	}
+  </script>
+  </head>
+  <style>
+  .jumbotron h1{
+	font-family:Bookman Antiqua;
+	font-size:58px;
+  }
+  
+  .jumbotron{
+	background:#CEE3F6;
+  }
+  
+  </style>
+  
+<!----- ==================================================================================================================================================================== --->
+<!-- Modal CatSelect-->
+<div class="modal fade" id="i94_dia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+       <center><h1>Please select your category</h1></center>
+	   <h1>&nbsp;</h1>
+				<div class="row">
+					<div class="col-lg-2"></div>
+					<div class="col-lg-8">
+						<button type="button" class="btn btn-success btn-lg btn-block" data-dismiss="modal" onClick="get_f1()">
+							<h1>F-1 or F-2 Student</h1>
+						</button>
+						<button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" onClick="get_j1()">
+							<h1>J-1 or J-2 Student</h1>
+						</button>
+						<button type="button" class="btn btn-default btn-lg btn-block" data-dismiss="modal" onClick="get_j1()">
+							<h1>Other Category</h1>
+						</button>
+					</div>
+					<div class="col-lg-2"></div>
+				</div>
+				<h1>&nbsp;</h1>
+      </div>
+	  </div>
+    </div>
+  </div>
+</div>
+<!----- ==================================================================================================================================================================== --->  
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+			<h4>&nbsp;</h4>
+				<center><h1 style="font-size:50px;">Station Selection</h1></center>
+				<h1>&nbsp;</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="jumbotron">
+				 <center>
+					<a class="btn btn-default btn-lg" href="scanner.html"><img src="images/being_scanned.gif" height="150px;"></a>
+					<h3>Scanner Station</h3>
+				 </center>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="jumbotron">
+				 <center>
+					<a class="btn btn-default btn-lg" onClick="i94_cat_select();"><img src="images/i94sttn.png" height="150px;"></a>
+					<h3>I-94 Station</h3>
+				 </center>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="jumbotron">
+				 <center>
+					<a class="btn btn-default btn-lg" onClick="address_cat_select();"><img src="images/address.png" height="150px;"></a>
+					<h3>Local Address</h3>
+				 </center>
+				</div>
+			</div>
+			
+		</div>
+	
+	</div>
+  </body>
+</html>
