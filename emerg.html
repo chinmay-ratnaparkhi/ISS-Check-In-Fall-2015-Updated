@@ -1,0 +1,73 @@
+
+			
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>ISS Checkin Fall 2015</title>
+  <script>
+  var newWin;
+  function get_form(){
+	var url= "https://ihawk.ku.edu/istart/controllers/client/ClientEngine.cfm?serviceid=EFormEmergencyContacts3ServiceProvider&index=120483&eformGroup=34&selectedEFormGroup=4398";	
+		newWin=window.open(url, 'ihawk','height=500,width=800,left=10000,top=0",resizable=yes,scrollbars=no,toolbar=no,status=no');
+	}
+  
+	
+	function finish(){
+		var x = document.getElementById("complete_confirm");
+		if(!x.checked)
+		{
+			var temp_buffer= document.getElementById("complete_confirm_text").innerHTML;
+			temp_buffer = '<div id="agreement_violation_p" class="alert alert-danger alert-dismissible fade in">You must agree to the following terms.</div>'+temp_buffer;
+			document.getElementById("complete_confirm_text").innerHTML= temp_buffer;
+			setTimeout(function(){
+				$('#agreement_violation_p').remove();		
+			},1500);
+		}else{
+			window.location= 'local_address.html';
+		}
+	}
+	
+	window.onunload = function() {
+		if (newWin && !newWin.closed) {
+			newWin.close();
+		}
+	};
+		
+  </script>
+  </head>
+  <body onLoad= 'get_form()'>
+	<div class="container" style="margin:5px;">
+		<h1 style="color:red;text-decoration: underline;">Instructions</h1>
+		<div class="container" style="padding:20px;">
+			<div class="row">
+				<div class="col-lg-6" id='data_win'>
+						<h3>Scroll Down and enter your Emergency Contact Information</h3>
+						<p>&nbsp;</p>
+						
+						<div class="alert alert-danger"><p class="lead">Your Emergency Contact MUST BE a <strong>Close Relative</strong>.</p></div>
+						<h1>&nbsp;</h1>
+	
+						<div class="checkbox"  style="float:left" id="complete_confirm_text">
+							<label><input id="complete_confirm" type="checkbox">I have successfully submitted my Emergency Contact Information to iHawk.</label>
+						</div>
+<center><a style="margin:10px;" class="btn btn-lg btn-success" onClick="finish()">Completed</a><br/><center>
+				</div>
+				</div>
+				<div class="col-lg-6"></div>
+			</div>
+		</div>
+		
+  </body>
+</html>
+
+
+

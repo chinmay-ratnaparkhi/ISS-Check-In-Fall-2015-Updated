@@ -12,6 +12,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <title>ISS Checkin Fall 2015</title>
   <script>
+  	
+	
 	function i94_cat_select(){
 		$("#i94_dia").modal('show');
 	}
@@ -22,6 +24,19 @@
 	
 	function get_j1(){
 		window.location= 'direct_i94_j1.html';
+	}
+	
+	
+	function address_cat_select(){
+		$("#add_dia").modal('show');
+	}
+	
+	function get_f1Add(){
+		window.location = 'direct_address_f1.html';
+	}
+	
+	function get_j1Add(){
+		window.location = 'direct_address_j1.html';
 	}
   </script>
   </head>
@@ -64,6 +79,32 @@
   </div>
 </div>
 <!----- ==================================================================================================================================================================== --->  
+
+<!-- Modal AddCatSelect-->
+<div class="modal fade" id="add_dia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+       <center><h1>Please select your category</h1></center>
+	   <h1>&nbsp;</h1>
+				<div class="row">
+					<div class="col-lg-2"></div>
+					<div class="col-lg-8">
+						<button type="button" class="btn btn-success btn-lg btn-block" data-dismiss="modal" onClick="get_f1Add()">
+							<h1>F-1 or F-2 Student</h1>
+						</button>
+						<button type="button" class="btn btn-primary btn-lg btn-block" data-dismiss="modal" onClick="get_j1Add()">
+							<h1>J-1 or J-2 Student</h1>
+						</button>
+					</div>
+					<div class="col-lg-2"></div>
+				</div>
+				<h1>&nbsp;</h1>
+      </div>
+	  </div>
+    </div>
+  </div>
+<!----- ==================================================================================================================================================================== --->
 <body>
 	<div class="container">
 		<div class="row">
