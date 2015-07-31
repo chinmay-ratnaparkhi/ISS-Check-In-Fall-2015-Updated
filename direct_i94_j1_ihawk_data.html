@@ -1,0 +1,78 @@
+
+			
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>ISS Checkin Fall 2015</title>
+  <script>
+  var newWin;
+	function load_ihawk(){
+		var url= "https://ihawk.ku.edu/istart/controllers/client/kansas-login.html?";	
+		newWin=window.open(url, 'ihawk','height=500,width=800,left=10000,top=0",resizable=yes,scrollbars=no,toolbar=no,status=no');
+	}
+	
+	function load_i94_form(){
+		var url= "https://ihawk.ku.edu/istart/controllers/client/ClientEngine.cfm?serviceid=EFormI94UploadAfterArrival1ServiceProvider&index=120483&eformGroup=34&selectedEFormGroup=4398";	
+		newWin=window.open(url, 'ihawk','height=500,width=800,left=10000,top=0",resizable=yes,scrollbars=no,toolbar=no,status=no');
+		var stuff= '<div class="alert alert-warning"><p class="lead">In the iHawk Window, scroll Down and select <strong>Yes</strong>.</p></div><div class="alert alert-warning"><p class="lead">Choose your Class of Admission as <strong>F1</strong>.</p></div><div class="alert alert-warning"><p class="lead">Click <strong>Choose file</strong>.</p></div><div class="alert alert-warning"><p class="lead">Locate your I-94 on the Desktop and click <strong>Submit</strong>.</p></div><h1>&nbsp;</h1><div class="checkbox"  style="float:left" id="complete_confirm_text"><label><input id="complete_confirm" type="checkbox">I have completed all the steps listed above.</label></div><center><a style="margin:10px;" class="btn btn-lg btn-success" onClick="finish()">Completed</a><br/><center>';
+		document.getElementById('data_win').innerHTML= stuff;
+	}
+	
+	function finish(){
+		var x = document.getElementById("complete_confirm");
+		if(!x.checked)
+		{
+			var temp_buffer= document.getElementById("complete_confirm_text").innerHTML;
+			temp_buffer = '<div id="agreement_violation_p" class="alert alert-danger alert-dismissible fade in">You must agree to the following terms.</div>'+temp_buffer;
+			document.getElementById("complete_confirm_text").innerHTML= temp_buffer;
+			setTimeout(function(){
+				$('#agreement_violation_p').remove();		
+			},1500);
+		}else{
+			window.location= 'j1_local_address.html';
+		}
+	}
+	
+	window.onunload = function() {
+		if (newWin && !newWin.closed) {
+			newWin.close();
+		}
+	};
+	
+		
+  </script>
+  </head>
+  <body>
+	<div class="container" style="margin:5px;">
+		<h1 style="color:red;text-decoration: underline;">Instructions</h1>
+		<div class="container" style="padding:20px;">
+			<div class="row">
+				<div class="col-lg-6" id='data_win'>
+					<div class="alert alert-warning">
+						<p class="lead">1. Please log in using your KU Online ID and Password.</p>
+						<p>Your KU Online ID is a combination of 2 letters and 6 digits. For example : <strong>a123z456</strong>.</p>
+					</div>
+					<div class="alert alert-warning"><p class="lead">2. Were you able to log in successfully? </p><br/> 
+					<center>
+						<a style="margin:10px;" class="btn btn-lg btn-success" onClick="load_i94_form()">Yes, Continue</a><br/>
+						<a style="margin:10px;" class="btn btn-lg btn-danger" onClick="load_ihawk()">No, Try Again</a>
+					<center>
+					</div>
+				</div>
+				</div>
+				<div class="col-lg-6"></div>
+			</div>
+		</div>
+		
+  </body>
+</html>
+
