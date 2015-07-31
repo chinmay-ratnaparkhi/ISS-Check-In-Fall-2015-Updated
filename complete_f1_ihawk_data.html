@@ -15,11 +15,10 @@
     <title>ISS Checkin Fall 2015</title>
   <script>
   var newWin;
-  function get_address_form(){
-	var url= "https://ihawk.ku.edu/istart/controllers/client/ClientEngine.cfm?serviceid=EFormLocalUSAddresscanbecompletedafterarrival2ServiceProvider";	
+	function load_ihawk(){
+		var url= "https://ihawk.ku.edu/istart/controllers/client/kansas-login.html?";	
 		newWin=window.open(url, 'ihawk','height=500,width=800,left=10000,top=0",resizable=yes,scrollbars=no,toolbar=no,status=no');
 	}
-  
 	
 	function finish(){
 		var x = document.getElementById("complete_confirm");
@@ -32,7 +31,7 @@
 				$('#agreement_violation_p').remove();		
 			},1500);
 		}else{
-			window.location= 'address_approve.html';
+			window.location= 'emerg.html';
 		}
 	}
 	
@@ -41,24 +40,26 @@
 			newWin.close();
 		}
 	};
+	
 		
   </script>
   </head>
-  <body onLoad= 'get_address_form()'>
+  <body onLoad="load_ihawk()">
 	<div class="container" style="margin:5px;">
 		<h1 style="color:red;text-decoration: underline;">Instructions</h1>
 		<div class="container" style="padding:20px;">
 			<div class="row">
 				<div class="col-lg-6" id='data_win'>
-						<div class="alert alert-warning"><p class="lead">Scroll Down and enter your <strong>local address in Lawrence</strong>.</p></div>
-						<div class="alert alert-warning"><p class="lead">Please follow the format shown in the <strong>example address</strong>.</p></div>
-						<div class="alert alert-warning"><p class="lead">Make sure that the address is correct and hit <strong>Submit</strong>.</p></div>
-						<h1>&nbsp;</h1>
-	
-						<div class="checkbox"  style="float:left" id="complete_confirm_text">
-							<label><input id="complete_confirm" type="checkbox">I have successfully submitted my address to iHawk.</label>
-						</div>
-<center><a style="margin:10px;" class="btn btn-lg btn-success" onClick="finish()">Completed</a><br/><center>
+					<div class="alert alert-warning">
+						<p class="lead">1. Please log in using your KU Online ID and Password.</p>
+						<p>Your KU Online ID is a combination of 2 letters and 6 digits. For example : <strong>a123z456</strong>.</p>
+					</div>
+					<div class="alert alert-warning"><p class="lead">2. Were you able to log in successfully? </p><br/> 
+					<center>
+						<a style="margin:10px;" class="btn btn-lg btn-success" href='f1_passport.html'>Yes, Continue</a><br/>
+						<a style="margin:10px;" class="btn btn-lg btn-danger" onClick="load_ihawk()">No, Try Again</a>
+					<center>
+					</div>
 				</div>
 				</div>
 				<div class="col-lg-6"></div>
@@ -67,6 +68,4 @@
 		
   </body>
 </html>
-
-
 

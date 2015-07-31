@@ -15,9 +15,9 @@
     <title>ISS Checkin Fall 2015</title>
   <script>
   var newWin;
-  function get_address_form(){
-	var url= "https://ihawk.ku.edu/istart/controllers/client/ClientEngine.cfm?serviceid=EFormLocalUSAddresscanbecompletedafterarrival2ServiceProvider";	
-		newWin=window.open(url, 'ihawk','height=500,width=800,left=10000,top=0",resizable=yes,scrollbars=no,toolbar=no,status=no');
+  function get_form(){
+	var url= "https://ihawk.ku.edu/istart/controllers/client/ClientEngine.cfm?serviceid=EFormPassportUpload1ServiceProvider";	
+		newWin=window.open(url, 'ihawk','height=700, width=800,left=10000,top=0",resizable=yes,scrollbars=no,toolbar=no,status=no');
 	}
   
 	
@@ -32,7 +32,7 @@
 				$('#agreement_violation_p').remove();		
 			},1500);
 		}else{
-			window.location= 'address_approve.html';
+			window.location= 'ds2019.html';
 		}
 	}
 	
@@ -44,24 +44,24 @@
 		
   </script>
   </head>
-  <body onLoad= 'get_address_form()'>
+  <body onLoad= 'get_form()'>
 	<div class="container" style="margin:5px;">
 		<h1 style="color:red;text-decoration: underline;">Instructions</h1>
 		<div class="container" style="padding:20px;">
 			<div class="row">
 				<div class="col-lg-6" id='data_win'>
-						<div class="alert alert-warning"><p class="lead">Scroll Down and enter your <strong>local address in Lawrence</strong>.</p></div>
-						<div class="alert alert-warning"><p class="lead">Please follow the format shown in the <strong>example address</strong>.</p></div>
-						<div class="alert alert-warning"><p class="lead">Make sure that the address is correct and hit <strong>Submit</strong>.</p></div>
-						<h1>&nbsp;</h1>
-	
+						<div class="alert alert-warning"><p class="lead">Scroll Down and enter your :<br>1. First Name<br>2. Last Name<br>3. Country of Citizenship<br>4. Passport Expiration Date</p></div>
+						<div class="alert alert-warning"><p class="lead">Click <strong>Choose File</strong> and locate your <strong>Passport</strong> saved on the Desktop.</p></div>
+						<div class="alert alert-warning"><p class="lead">Select the appropriate file and hit <strong>Submit</strong>.</p></div>
 						<div class="checkbox"  style="float:left" id="complete_confirm_text">
-							<label><input id="complete_confirm" type="checkbox">I have successfully submitted my address to iHawk.</label>
+							<label><input id="complete_confirm" type="checkbox">I have successfully submitted my Passport to iHawk.</label>
 						</div>
 <center><a style="margin:10px;" class="btn btn-lg btn-success" onClick="finish()">Completed</a><br/><center>
 				</div>
 				</div>
 				<div class="col-lg-6"></div>
+				<p>&nbsp;</p>
+				<a class="btn btn-default" href="ds2019.html">I have already submitted this document.</a>
 			</div>
 		</div>
 		
