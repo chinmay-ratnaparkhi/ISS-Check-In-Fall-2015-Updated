@@ -27,7 +27,7 @@ function password_submit(){
 		document.writeln('Process completed. Please close this window.'); 
 		
 		var url= "https://ihawk.ku.edu/istart/controllers/client/Logout.cfm";	
-		newWin=window.open(url, 'ihawk','height=500,width=800,left=10000,top=0",resizable=yes,scrollbars=no,toolbar=no,status=no');
+		newWin=window.open(url, 'ihawk','height=800,width=800,left=10000,top=0",resizable=yes,toolbar=no,status=no');
 	}else{
 		document.getElementById("password_box").value= '';
 		var error_location= document.getElementById("message_box");
@@ -36,10 +36,15 @@ function password_submit(){
 		setTimeout(function(){error_location.innerHTML='';}, 1500);
 	}
 }
+
+function getChecklist(){
+		var url= "https://ihawk.ku.edu/istart/controllers/client/ClientEngine.cfm?serviceid=EFormGroupProvider&eformGroup=34&menuFlag=true";	
+		newWin=window.open(url, 'ihawk','height=800,width=800,left=10000,top=0",resizable=yes,toolbar=no,status=no');
+}
 		
   </script>
   </head>
-  <body >
+  <body onLoad="getChecklist()">
 	<div class="container" style="margin:5px;">
 		<h1 style="color:red;text-decoration: underline;">Instructions</h1>
 		<div class="container" style="padding:20px;">
