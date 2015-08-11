@@ -41,6 +41,12 @@ function getChecklist(){
 		var url= "https://ihawk.ku.edu/istart/controllers/client/ClientEngine.cfm?serviceid=EFormGroupProvider&eformGroup=34&menuFlag=true";	
 		newWin=window.open(url, 'ihawk','height=800,width=800,left=10000,top=0",resizable=yes,toolbar=no,status=no');
 }
+
+window.onunload = function() {
+		if (newWin && !newWin.closed) {
+			newWin.close();
+		}
+	};
 		
   </script>
   </head>
